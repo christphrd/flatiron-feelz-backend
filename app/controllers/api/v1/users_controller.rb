@@ -1,9 +1,10 @@
 class Api::V1::UsersController < ApplicationController
   #example with notes
-  # def index
-  #   @notes = Note.all
-  #   render json: @notes
-  # end
+  def index
+    @users = User.all
+    render json: @users
+  end
+
   #
   # def update
   #   @note = Note.find(params[:id])
