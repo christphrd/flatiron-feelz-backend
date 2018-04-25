@@ -16,3 +16,18 @@ class Api::V1::UsersController < ApplicationController
     params.permit(:first_name, :last_name, :email)
   end
 end
+
+# testing fetch
+# fetch('http://localhost:3000/api/v1/users', {
+#   method: 'POST',
+#   body: JSON.stringify({
+#     first_name: 'dummy',
+#     last_name: 'test',
+#     email: 'av@av.co'
+#   }),
+#   headers: {
+#     'content-type': 'application/json'
+#   }
+# })
+# .then(res => res.json())
+# .then(json => console.log(json))
