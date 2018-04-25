@@ -5,20 +5,14 @@ class Api::V1::UsersController < ApplicationController
     render json: @users
   end
 
-  #
-  # def update
-  #   @note = Note.find(params[:id])
-  #
-  #   @note.update(note_params)
-  #   if @note.save
-  #     render json: @note
-  #   else
-  #     render json: {errors: @note.errors.full_messages}, status: 422
-  #   end
-  # end
-  #
-  # private
-  # def note_params
-  #   params.permit(:title, :content)
-  # end
+  def create
+    @user = User.create(user_params)
+    render json: @user
+  end
+
+  private
+
+  def user_params
+    params.permit(:first_name, :last_name, :email)
+  end
 end
