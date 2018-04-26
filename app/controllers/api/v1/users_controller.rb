@@ -5,7 +5,7 @@ class Api::V1::UsersController < ApplicationController
   #example with notes
   def index
     @users = User.all
-    render json: @users, status: 200
+    render json: @users.to_json(only: [:id, :first_name, :last_name, :email]), status: 200
   end
 
   def create

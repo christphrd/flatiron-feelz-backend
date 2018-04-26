@@ -3,6 +3,7 @@ class Api::V1::AuthController < ApplicationController
   skip_before_action :authorized, only: [:create, :show]
 
   def create
+    puts "Front end hit"
     @user = User.find_by(email: user_login_params[:email])
 
     #if user login matches. jwt token created and given
