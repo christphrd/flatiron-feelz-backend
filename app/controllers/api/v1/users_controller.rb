@@ -12,6 +12,7 @@ class Api::V1::UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.valid?
       @user.save
+      #creates a token with a payload of user's id
       token = encode_token({ user_id: @user.id })
       render json: { email: @user.email, first_name: @user.first_name, last_name: @user.last_name, jwt: token }, status: 202
     else
