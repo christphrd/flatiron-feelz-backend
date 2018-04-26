@@ -1,11 +1,11 @@
 class ApplicationController < ActionController::API
   #PAUSED ON AUTH SETUP
-  # before_action :authorized
+  before_action :authorized
   #
   # #taking the frontend and encoding
-  # def encode_token(payload)
-  #   JWT.encode(payload, "sqlit")
-  # end
+  def encode_token(payload)
+    JWT.encode(payload, "sqlit")
+  end
   #
   # #frontend checking authorization?
   # def auth_header
@@ -34,8 +34,8 @@ class ApplicationController < ActionController::API
   #   !!current_user
   # end
   #
-  # def authorized
-  #   render json: {message: "Please log in"}, status: 401 unless logged_in?
-  # end
+  def authorized
+    render json: {message: "Please log in"}, status: 401 unless logged_in?
+  end
 
 end
