@@ -1,9 +1,10 @@
+require 'byebug'
+
 class Api::V1::AuthController < ApplicationController
   # #anyone can view this page. Just the show and create pages
   skip_before_action :authorized, only: [:create, :show]
 
   def create
-    puts "Front end hit"
     @user = User.find_by(email: user_login_params[:email])
 
     #if user login matches. jwt token created and given
@@ -28,6 +29,6 @@ class Api::V1::AuthController < ApplicationController
   private
 
   def user_login_params
-    params.require(:user).permit(:email, :password)
+    params.permit(:email, :password)
   end
 end
