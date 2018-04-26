@@ -10,7 +10,7 @@ class Api::V1::AuthController < ApplicationController
     #if user login matches. jwt token created and given
     if @user && @user.authenticate(user_login_params[:password])
       token = encode_token({ user_id: @user.id })
-      render json: { email: @user.email, jwt: token }, status: 202
+      render json: { email: @user.email, first_name: @user.first_name, last_name: @user.last_name, jwt: token }, status: 202
     else
       render json: { message: "Invalid email or password" }, status: 401
     end
