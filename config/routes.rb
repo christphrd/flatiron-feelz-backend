@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   #routes for API backend
   namespace :api do
     namespace :v1 do
-      resources :users
+      resources :users, only: [:index, :create]
+      post "/login", to: "auth#create"
+      post "/signup", to: "users#create"
+      get "/current_user", to: "auth#show"
     end
   end
 end
