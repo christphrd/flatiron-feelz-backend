@@ -27,7 +27,7 @@ class Api::V1::UsersController < ApplicationController
       @user.save
       #creates a token with a payload of user's id
       token = encode_token({ user_id: @user.id })
-      render json: { email: @user.email, first_name: @user.first_name, last_name: @user.last_name, jwt: token }, status: 202
+      render json: { id: @user.id, email: @user.email, first_name: @user.first_name, last_name: @user.last_name, jwt: token }, status: 202
     else
       render json: { message: "#{@user.errors.messages.keys[0]} #{@user.errors[@user.errors.messages.keys[0]][0]}" }, status: 404
     end
