@@ -1,11 +1,19 @@
+require 'byebug'
+
 class Api::V1::UsersController < ApplicationController
-  skip_before_action :authorized, only: [:index, :create]
+  skip_before_action :authorized, only: [:index, :create, :show]
   wrap_parameters :user, include: [:first_name, :last_name, :email, :password, :password_confirmation]
 
   #example with notes
   def index
     @users = User.all
     render json: @users.to_json(only: [:id, :first_name, :last_name, :email]), status: 200
+  end
+
+  def show
+    @user = User.find_by(id: params[:id])
+
+    render json: { email: @user.email, first_name: @user.first_name, last_name: @user.last_name }, status: 200
   end
 
   def create
