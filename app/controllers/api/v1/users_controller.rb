@@ -13,7 +13,7 @@ class Api::V1::UsersController < ApplicationController
   def show
     @user = User.find_by(id: params[:id])
 
-    render json: { email: @user.email, first_name: @user.first_name, last_name: @user.last_name }, status: 200
+    render json: { id: @user.id, email: @user.email, first_name: @user.first_name, last_name: @user.last_name }, status: 200
   end
 
   def create
