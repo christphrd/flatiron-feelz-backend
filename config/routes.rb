@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       post "/login", to: "auth#create"
       post "/signup", to: "users#create"
       get "/current_user", to: "auth#show"
-      resources :posts
+      resources :posts, only: [:create]
     end
   end
 end
