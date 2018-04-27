@@ -20,7 +20,7 @@ class Api::V1::AuthController < ApplicationController
     #Found user. then make jwt token encoded
     if !!current_user #current_user comes from application controller; is current user loggined? show page
       token = encode_token({ user_id: current_user.id })
-      render json: { email: current_user.email, jwt: token }, status: 200
+      render json: { email: current_user.email, first_name: current_user.first_name, last_name: current_user.last_name, jwt: token }, status: 200
     else
       render json: { message: "User not found" }, status: 404
     end
