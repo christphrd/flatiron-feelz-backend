@@ -12,8 +12,13 @@ class Api::V1::UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
+    @last_post = @user.posts.last
 
-    render json: { id: @user.id, email: @user.email, first_name: @user.first_name, last_name: @user.last_name }, status: 200
+    if @last_post
+      render json: { id: @user.id, email: @user.email, first_name: @user.first_name, last_name: @user.last_name, last_post_id: @last_post.id, last_post_feelings: @last_post.feelings }, status: 200
+    else
+      render json: { id: @user.id, email: @user.email, first_name: @user.first_name, last_name: @user.last_name }, status: 200
+    end
   end
 
   def create
