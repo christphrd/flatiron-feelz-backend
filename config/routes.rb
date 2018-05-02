@@ -9,6 +9,9 @@ Rails.application.routes.draw do
       post "/signup", to: "users#create"
       get "/current_user", to: "auth#show"
       resources :posts, only: [:create]
+      # resources :selfies, only: [:create]
+      #index needed temporarily and everything else needed
+      resources :selfies
     end
   end
 end

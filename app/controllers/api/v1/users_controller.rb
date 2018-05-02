@@ -15,7 +15,7 @@ class Api::V1::UsersController < ApplicationController
     @last_post = @user.posts.last
 
     if @last_post
-      render json: { id: @user.id, email: @user.email, first_name: @user.first_name, last_name: @user.last_name, last_post_id: @last_post.id, last_post_created_at: @last_post.created_at, last_post_feelings: @last_post.feelings, last_post_dog_spirit: @last_post.dog_spirit, last_post_selfie: @last_post.selfie }, status: 200
+      render json: { id: @user.id, email: @user.email, first_name: @user.first_name, last_name: @user.last_name, last_post_id: @last_post.id, last_post_created_at: @last_post.created_at, last_post_feelings: @last_post.feelings, last_post_dog_spirit: @last_post.dog_spirit }, status: 200
     else
       render json: { id: @user.id, email: @user.email, first_name: @user.first_name, last_name: @user.last_name }, status: 200
     end
