@@ -20,6 +20,6 @@ class Api::V1::SelfiesController < ApplicationController
 
   def selfie_params
     #may have to edit depending on frontend form
-    params.require(:selfie).permit(:user_id, :link, :anger, :contempt, :disgust, :fear, :happiness, :neutral, :sadness, :surprise)
+    params.permit(:user_id, :link, :anger, :contempt, :disgust, :fear, :happiness, :neutral, :sadness, :surprise)
   end
 end
