@@ -10,22 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_02_170759) do
+ActiveRecord::Schema.define(version: 2018_05_03_031146) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "posts", force: :cascade do |t|
+  create_table "photos", force: :cascade do |t|
     t.integer "user_id"
-    t.text "feelings"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "dog_spirit"
-  end
-
-  create_table "selfies", force: :cascade do |t|
-    t.integer "user_id"
-    t.string "link"
+    t.string "selfie"
     t.decimal "anger"
     t.decimal "contempt"
     t.decimal "disgust"
@@ -34,6 +26,14 @@ ActiveRecord::Schema.define(version: 2018_05_02_170759) do
     t.decimal "neutral"
     t.decimal "sadness"
     t.decimal "surprise"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.integer "user_id"
+    t.text "feelings"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "dog_spirit"
   end
 
   create_table "users", force: :cascade do |t|

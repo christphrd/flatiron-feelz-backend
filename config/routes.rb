@@ -11,7 +11,7 @@ Rails.application.routes.draw do
       resources :posts, only: [:create]
       # resources :selfies, only: [:create]
       #index needed temporarily and everything else needed
-      resources :selfies
+      resources :photos
     end
   end
 end
