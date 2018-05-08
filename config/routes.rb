@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       #chatroom resources
       resources :conversations, only: [:index, :create]
       resources :messages, only: [:create]
+      #actioncable from redis gem
       mount ActionCable.server => '/cable'
     end
   end

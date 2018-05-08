@@ -1,3 +1,5 @@
+#Channels can be thought of as a means to organize streams of data
+
 class MessagesChannel < ApplicationCable::Channel
   def subscribed
     # stream_from "some_channel"
