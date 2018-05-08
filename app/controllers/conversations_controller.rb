@@ -11,6 +11,7 @@ class ConversationsController < ApplicationController
       serialized_data = ActiveModelSerializers::Adapter::Json.new(
         ConversationSerializer.new(conversation)
       ).serializable_hash
+      #logic for boardcasing could be in channel
       ActionCable.server.broadcast 'conversations_channel', serialized_data
       head :ok
     end
