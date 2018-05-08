@@ -12,6 +12,11 @@ Rails.application.routes.draw do
       # resources :selfies, only: [:create]
       #index needed temporarily and everything else needed
       resources :photos
+
+      #chatroom resources
+      resources :conversations, only: [:index, :create]
+      resources :messages, only: [:create]
+      mount ActionCable.server => '/cable'
     end
   end
 end
