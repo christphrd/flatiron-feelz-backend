@@ -1,5 +1,3 @@
-require 'byebug'
-
 class Api::V1::AuthController < ApplicationController
   # #anyone can view this page. Just the show and create pages
   skip_before_action :authorized, only: [:create, :show]

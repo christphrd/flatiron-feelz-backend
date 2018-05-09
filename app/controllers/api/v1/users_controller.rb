@@ -1,5 +1,3 @@
-require 'byebug'
-
 class Api::V1::UsersController < ApplicationController
   skip_before_action :authorized, only: [:index, :create, :show]
   wrap_parameters :user, include: [:first_name, :last_name, :email, :password, :password_confirmation]
