@@ -53,6 +53,6 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   #action cable for client
-  config.action_cable.url = "ws://192.168.3.58:3000/cable"
+  config.action_cable.url = "wss://floating-wildwood-28213.herokuapp.com/cable"
   config.action_cable.allowed_request_origins = [/http:\/\/*/, /https:\/\/*/]
 end
