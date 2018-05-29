@@ -84,6 +84,8 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   #action cable for client
-  config.action_cable.url = "wss://floating-wildwood-28213.herokuapp.com/cable"
+  # config.action_cable.url = "wss://floating-wildwood-28213.herokuapp.com/cable"
   config.action_cable.allowed_request_origins = [/http:\/\/*/, /https:\/\/*/]
+  #Heroku Configure Action Cable's Production URI
+  config.action_cable.url = "wss://floating-wildwood-28213.herokuapp.com/cable"
 end
